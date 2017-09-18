@@ -23,3 +23,9 @@ describe('Counter', function() {
 });
 
 
+// describe('Sheep coutng store', function() {
+//   it('should return the state', function() {
+//     const state = store.getState();
+//     expect(state.count).toEqual(0);
+//   })
+// })
