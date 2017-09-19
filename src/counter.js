@@ -1,5 +1,8 @@
 import { createStore } from 'redux'
 
+
+const INCREASE_COUNT = 'INCREASE_COUNT';
+
 export const increaseCount = (amount = 1) => ({
   type: 'INCREASE_COUNT',
   payload: amount

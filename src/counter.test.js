@@ -24,8 +24,28 @@ describe('Sheep coutng store', function() {
   });
 
   it('should dispatch actions and update the state', function() {
-    const state = store.getState();
-    expect(state.count).toEqual(0);
+    const action = increaseCount();
+    store.dispatch(action);
+    expect(store.getState().count).toEqual(1);
+  });
+
+
+  it('should call the subscribers when the store data changes', function() {
+    const listener = jest.fn();
+    store.subscribe(listener);
+    const action = increaseCount();
+    store.dispatch(action);
+    expect(listener).toHaveBeenCalled();
+  });
+
+
+  it('should call the subscribers when the store data changes', function() {
+    const listener = jest.fn();
+    const unsubscribe = store.subscribe(listener);
+    const action = increaseCount();
+    unsubscribe();
+    store.dispatch(action);
+    expect(listener).not.toHaveBeenCalled();
   });
 
 
